@@ -182,9 +182,9 @@ def chapter_name(url, distinguisher):
         
     return None
 
-def main():
+def initiate(home_location):
     #get all of the links to each chapter
-    links = get_chapter_links('https://readberserk.com/')
+    links = get_chapter_links(home_location)
 
     for link in links:
         url = link["href"]
@@ -209,6 +209,9 @@ def main():
     
     print("ALL CHAPTERS DOWNLOADED! PLEASE NOT THESE CHAPTERS HAD SOME ERRORS AND SKIPPED SOME PAGES ON THE WEBSITE. PLEASE DOUBLE CHECK THESE CHAPTERS BEFORE READING")
     print(pprint.pprint(chapters_with_missing_pages))
+
+def main():
+    initiate('https://readberserk.com/')
 
 if __name__ == '__main__':
     main()
